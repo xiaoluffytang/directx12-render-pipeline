@@ -1,0 +1,3 @@
+﻿VC++目录 ： 包含目录：  ..\..\freetype-2.5.3\include
+VC++目录 ： 库目录：     ..\..\freetype-2.5.3\objs\win64\vc2010
+链接器       ： 附加依赖性  ..\..\freetype-2.5.3\objs\win64\vc2010\freetype253_D.lib

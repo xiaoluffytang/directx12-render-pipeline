@@ -1,0 +1,9 @@
+newmtl default
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.70 0.70 0.70
+Tf 1.00 1.00 1.00
+map_Kd GaiLun.dds
+Ni 1.50
+Ks 0.10 0.10 0.10
+Ns 10.00

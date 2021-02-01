@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3F4D6E80-3635-4577-B6AC-CE8B90068BDD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Shapes</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\..\freetype-2.5.3\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\freetype-2.5.3\objs\win64\vc2010;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>..\freetype-2.5.3\objs\win64\vc2010;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>..\..\freetype-2.5.3\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\freetype-2.5.3\objs\win64\vc2010\freetype253_D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Disabled</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\..\freetype-2.5.3\objs\win64\vc2010\freetype253_D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Common\Camera.cpp" />
+    <ClCompile Include="..\..\Common\d3dApp.cpp" />
+    <ClCompile Include="..\..\Common\d3dUtil.cpp" />
+    <ClCompile Include="..\..\Common\DDSTextureLoader.cpp" />
+    <ClCompile Include="..\..\Common\GameTimer.cpp" />
+    <ClCompile Include="..\..\Common\GeometryGenerator.cpp" />
+    <ClCompile Include="..\..\Common\MathHelper.cpp" />
+    <ClCompile Include="Effects\CubeRenderTarget.cpp" />
+    <ClCompile Include="Effects\FFTOcean.cpp" />
+    <ClCompile Include="Effects\ParticleEffect.cpp" />
+    <ClCompile Include="GameOjbects\AnimatorRole.cpp" />
+    <ClCompile Include="Animator\LoadM3d.cpp" />
+    <ClCompile Include="Animator\SkinnedData.cpp" />
+    <ClCompile Include="font3D\Font3D.cpp" />
+    <ClCompile Include="font3D\ftgl\Contour.cpp" />
+    <ClCompile Include="font3D\ftgl\Point.cpp" />
+    <ClCompile Include="font3D\ftgl\Vectoriser.cpp" />
+    <ClCompile Include="font3D\poly2tri\common\shapes.cc" />
+    <ClCompile Include="font3D\poly2tri\sweep\advancing_front.cc" />
+    <ClCompile Include="font3D\poly2tri\sweep\cdt.cc" />
+    <ClCompile Include="font3D\poly2tri\sweep\sweep.cc" />
+    <ClCompile Include="font3D\poly2tri\sweep\sweep_context.cc" />
+    <ClCompile Include="GameOjbects\Sphere.cpp" />
+    <ClCompile Include="GameOjbects\Water.cpp" />
+    <ClCompile Include="Manager\FontManager.cpp" />
+    <ClCompile Include="Effects\Blur.cpp" />
+    <ClCompile Include="font\Font.cpp" />
+    <ClCompile Include="GameOjbects\GaiLun.cpp" />
+    <ClCompile Include="GameOjbects\CityDoor.cpp" />
+    <ClCompile Include="GameOjbects\Grass1.cpp" />
+    <ClCompile Include="Manager\HeapResourceManager.cpp" />
+    <ClCompile Include="Manager\CameraManager.cpp" />
+    <ClCompile Include="Compoents\Component.cpp" />
+    <ClCompile Include="FrameResource.cpp" />
+    <ClCompile Include="Compoents\GameObject.cpp" />
+    <ClCompile Include="Manager\GameObjectManager.cpp" />
+    <ClCompile Include="Manager\Manager.cpp" />
+    <ClCompile Include="Manager\MaterialManager.cpp" />
+    <ClCompile Include="Compoents\MeshRender.cpp" />
+    <ClCompile Include="ModelObj.cpp" />
+    <ClCompile Include="Manager\PSOManager.cpp" />
+    <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="Manager\RenderManager.cpp" />
+    <ClCompile Include="GameOjbects\Plane.cpp" />
+    <ClCompile Include="Effects\ShadowMap.cpp" />
+    <ClCompile Include="Effects\ScreenPostMap.cpp" />
+    <ClCompile Include="GameOjbects\ScreenRenderObj.cpp" />
+    <ClCompile Include="GameOjbects\ScriptLand.cpp" />
+    <ClCompile Include="ShapesApp.cpp" />
+    <ClCompile Include="Manager\TextureManager.cpp" />
+    <ClCompile Include="Compoents\Transform.cpp" />
+    <ClCompile Include="GameOjbects\Specular.cpp" />
+    <ClCompile Include="GameOjbects\SkyBox.cpp" />
+    <ClCompile Include="Effects\Ssao.cpp" />
+    <ClCompile Include="GameOjbects\UISprite.cpp" />
+    <ClCompile Include="GameOjbects\UIText.cpp" />
+    <ClCompile Include="GameOjbects\Text3D.cpp" />
+    <ClCompile Include="GameOjbects\SkullParticle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Common\Camera.h" />
+    <ClInclude Include="..\..\Common\d3dApp.h" />
+    <ClInclude Include="..\..\Common\d3dUtil.h" />
+    <ClInclude Include="..\..\Common\d3dx12.h" />
+    <ClInclude Include="..\..\Common\DDSTextureLoader.h" />
+    <ClInclude Include="..\..\Common\GameTimer.h" />
+    <ClInclude Include="..\..\Common\GeometryGenerator.h" />
+    <ClInclude Include="..\..\Common\MathHelper.h" />
+    <ClInclude Include="..\..\Common\UploadBuffer.h" />
+    <ClInclude Include="Effects\CubeRenderTarget.h" />
+    <ClInclude Include="Effects\FFTOcean.h" />
+    <ClInclude Include="Effects\ParticleEffect.h" />
+    <ClInclude Include="GameOjbects\AnimatorRole.h" />
+    <ClInclude Include="Animator\LoadM3d.h" />
+    <ClInclude Include="Animator\SkinnedData.h" />
+    <ClInclude Include="font3D\Font3D.h" />
+    <ClInclude Include="font3D\ftgl\Contour.h" />
+    <ClInclude Include="font3D\ftgl\Point.h" />
+    <ClInclude Include="font3D\ftgl\Vectoriser.h" />
+    <ClInclude Include="font3D\poly2tri\common\shapes.h" />
+    <ClInclude Include="font3D\poly2tri\common\utils.h" />
+    <ClInclude Include="font3D\poly2tri\poly2tri.h" />
+    <ClInclude Include="font3D\poly2tri\sweep\advancing_front.h" />
+    <ClInclude Include="font3D\poly2tri\sweep\cdt.h" />
+    <ClInclude Include="font3D\poly2tri\sweep\sweep.h" />
+    <ClInclude Include="font3D\poly2tri\sweep\sweep_context.h" />
+    <ClInclude Include="GameOjbects\Sphere.h" />
+    <ClInclude Include="GameOjbects\Water.h" />
+    <ClInclude Include="Manager\FontManager.h" />
+    <ClInclude Include="Effects\Blur.h" />
+    <ClInclude Include="font\Font.h" />
+    <ClInclude Include="freetype\config\ftconfig.h" />
+    <ClInclude Include="freetype\config\ftheader.h" />
+    <ClInclude Include="freetype\config\ftmodule.h" />
+    <ClInclude Include="freetype\config\ftoption.h" />
+    <ClInclude Include="freetype\config\ftstdlib.h" />
+    <ClInclude Include="freetype\freetype.h" />
+    <ClInclude Include="freetype\ftadvanc.h" />
+    <ClInclude Include="freetype\ftbbox.h" />
+    <ClInclude Include="freetype\ftbdf.h" />
+    <ClInclude Include="freetype\ftbitmap.h" />
+    <ClInclude Include="freetype\ftbzip2.h" />
+    <ClInclude Include="freetype\ftcache.h" />
+    <ClInclude Include="freetype\ftchapters.h" />
+    <ClInclude Include="freetype\ftcid.h" />
+    <ClInclude Include="freetype\ftcolor.h" />
+    <ClInclude Include="freetype\ftdriver.h" />
+    <ClInclude Include="freetype\fterrdef.h" />
+    <ClInclude Include="freetype\fterrors.h" />
+    <ClInclude Include="freetype\ftfntfmt.h" />
+    <ClInclude Include="freetype\ftgasp.h" />
+    <ClInclude Include="freetype\ftglyph.h" />
+    <ClInclude Include="freetype\ftgxval.h" />
+    <ClInclude Include="freetype\ftgzip.h" />
+    <ClInclude Include="freetype\ftimage.h" />
+    <ClInclude Include="freetype\ftincrem.h" />
+    <ClInclude Include="freetype\ftlcdfil.h" />
+    <ClInclude Include="freetype\ftlist.h" />
+    <ClInclude Include="freetype\ftlzw.h" />
+    <ClInclude Include="freetype\ftmac.h" />
+    <ClInclude Include="freetype\ftmm.h" />
+    <ClInclude Include="freetype\ftmodapi.h" />
+    <ClInclude Include="freetype\ftmoderr.h" />
+    <ClInclude Include="freetype\ftotval.h" />
+    <ClInclude Include="freetype\ftoutln.h" />
+    <ClInclude Include="freetype\ftparams.h" />
+    <ClInclude Include="freetype\ftpfr.h" />
+    <ClInclude Include="freetype\ftrender.h" />
+    <ClInclude Include="freetype\ftsizes.h" />
+    <ClInclude Include="freetype\ftsnames.h" />
+    <ClInclude Include="freetype\ftstroke.h" />
+    <ClInclude Include="freetype\ftsynth.h" />
+    <ClInclude Include="freetype\ftsystem.h" />
+    <ClInclude Include="freetype\fttrigon.h" />
+    <ClInclude Include="freetype\fttypes.h" />
+    <ClInclude Include="freetype\ftwinfnt.h" />
+    <ClInclude Include="freeType\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="freeType\include\freetype\config\ftheader.h" />
+    <ClInclude Include="freeType\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="freeType\include\freetype\config\ftoption.h" />
+    <ClInclude Include="freeType\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="freeType\include\freetype\freetype.h" />
+    <ClInclude Include="freeType\include\freetype\ftadvanc.h" />
+    <ClInclude Include="freeType\include\freetype\ftbbox.h" />
+    <ClInclude Include="freeType\include\freetype\ftbdf.h" />
+    <ClInclude Include="freeType\include\freetype\ftbitmap.h" />
+    <ClInclude Include="freeType\include\freetype\ftbzip2.h" />
+    <ClInclude Include="freeType\include\freetype\ftcache.h" />
+    <ClInclude Include="freeType\include\freetype\ftchapters.h" />
+    <ClInclude Include="freeType\include\freetype\ftcid.h" />
+    <ClInclude Include="freeType\include\freetype\ftcolor.h" />
+    <ClInclude Include="freeType\include\freetype\ftdriver.h" />
+    <ClInclude Include="freeType\include\freetype\fterrdef.h" />
+    <ClInclude Include="freeType\include\freetype\fterrors.h" />
+    <ClInclude Include="freeType\include\freetype\ftfntfmt.h" />
+    <ClInclude Include="freeType\include\freetype\ftgasp.h" />
+    <ClInclude Include="freeType\include\freetype\ftglyph.h" />
+    <ClInclude Include="freeType\include\freetype\ftgxval.h" />
+    <ClInclude Include="freeType\include\freetype\ftgzip.h" />
+    <ClInclude Include="freeType\include\freetype\ftimage.h" />
+    <ClInclude Include="freeType\include\freetype\ftincrem.h" />
+    <ClInclude Include="freeType\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="freeType\include\freetype\ftlist.h" />
+    <ClInclude Include="freeType\include\freetype\ftlzw.h" />
+    <ClInclude Include="freeType\include\freetype\ftmac.h" />
+    <ClInclude Include="freeType\include\freetype\ftmm.h" />
+    <ClInclude Include="freeType\include\freetype\ftmodapi.h" />
+    <ClInclude Include="freeType\include\freetype\ftmoderr.h" />
+    <ClInclude Include="freeType\include\freetype\ftotval.h" />
+    <ClInclude Include="freeType\include\freetype\ftoutln.h" />
+    <ClInclude Include="freeType\include\freetype\ftparams.h" />
+    <ClInclude Include="freeType\include\freetype\ftpfr.h" />
+    <ClInclude Include="freeType\include\freetype\ftrender.h" />
+    <ClInclude Include="freeType\include\freetype\ftsizes.h" />
+    <ClInclude Include="freeType\include\freetype\ftsnames.h" />
+    <ClInclude Include="freeType\include\freetype\ftstroke.h" />
+    <ClInclude Include="freeType\include\freetype\ftsynth.h" />
+    <ClInclude Include="freeType\include\freetype\ftsystem.h" />
+    <ClInclude Include="freeType\include\freetype\fttrigon.h" />
+    <ClInclude Include="freeType\include\freetype\fttypes.h" />
+    <ClInclude Include="freeType\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="freeType\include\freetype\internal\autohint.h" />
+    <ClInclude Include="freeType\include\freetype\internal\cffotypes.h" />
+    <ClInclude Include="freeType\include\freetype\internal\cfftypes.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftcalc.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftdebug.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftdrv.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="freeType\include\freetype\internal\fthash.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftmemory.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftobjs.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftpsprop.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftrfork.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftserv.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftstream.h" />
+    <ClInclude Include="freeType\include\freetype\internal\fttrace.h" />
+    <ClInclude Include="freeType\include\freetype\internal\ftvalid.h" />
+    <ClInclude Include="freeType\include\freetype\internal\internal.h" />
+    <ClInclude Include="freeType\include\freetype\internal\psaux.h" />
+    <ClInclude Include="freeType\include\freetype\internal\pshints.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svcfftl.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svcid.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svfntfmt.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svkern.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svmetric.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svmm.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svotval.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svprop.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="freeType\include\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="freeType\include\freetype\internal\sfnt.h" />
+    <ClInclude Include="freeType\include\freetype\internal\t1types.h" />
+    <ClInclude Include="freeType\include\freetype\internal\tttypes.h" />
+    <ClInclude Include="freeType\include\freetype\t1tables.h" />
+    <ClInclude Include="freeType\include\freetype\ttnameid.h" />
+    <ClInclude Include="freeType\include\freetype\tttables.h" />
+    <ClInclude Include="freeType\include\freetype\tttags.h" />
+    <ClInclude Include="freeType\include\ft2build.h" />
+    <ClInclude Include="freetype\internal\autohint.h" />
+    <ClInclude Include="freetype\internal\cffotypes.h" />
+    <ClInclude Include="freetype\internal\cfftypes.h" />
+    <ClInclude Include="freetype\internal\ftcalc.h" />
+    <ClInclude Include="freetype\internal\ftdebug.h" />
+    <ClInclude Include="freetype\internal\ftdrv.h" />
+    <ClInclude Include="freetype\internal\ftgloadr.h" />
+    <ClInclude Include="freetype\internal\fthash.h" />
+    <ClInclude Include="freetype\internal\ftmemory.h" />
+    <ClInclude Include="freetype\internal\ftobjs.h" />
+    <ClInclude Include="freetype\internal\ftpsprop.h" />
+    <ClInclude Include="freetype\internal\ftrfork.h" />
+    <ClInclude Include="freetype\internal\ftserv.h" />
+    <ClInclude Include="freetype\internal\ftstream.h" />
+    <ClInclude Include="freetype\internal\fttrace.h" />
+    <ClInclude Include="freetype\internal\ftvalid.h" />
+    <ClInclude Include="freetype\internal\internal.h" />
+    <ClInclude Include="freetype\internal\pshints.h" />
+    <ClInclude Include="freetype\internal\services\svbdf.h" />
+    <ClInclude Include="freetype\internal\services\svcfftl.h" />
+    <ClInclude Include="freetype\internal\services\svcid.h" />
+    <ClInclude Include="freetype\internal\services\svfntfmt.h" />
+    <ClInclude Include="freetype\internal\services\svgldict.h" />
+    <ClInclude Include="freetype\internal\services\svgxval.h" />
+    <ClInclude Include="freetype\internal\services\svkern.h" />
+    <ClInclude Include="freetype\internal\services\svmetric.h" />
+    <ClInclude Include="freetype\internal\services\svmm.h" />
+    <ClInclude Include="freetype\internal\services\svotval.h" />
+    <ClInclude Include="freetype\internal\services\svpfr.h" />
+    <ClInclude Include="freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="freetype\internal\services\svprop.h" />
+    <ClInclude Include="freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="freetype\internal\services\svtteng.h" />
+    <ClInclude Include="freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="freetype\internal\sfnt.h" />
+    <ClInclude Include="freetype\internal\t1types.h" />
+    <ClInclude Include="freetype\internal\tttypes.h" />
+    <ClInclude Include="freetype\t1tables.h" />
+    <ClInclude Include="freetype\ttnameid.h" />
+    <ClInclude Include="freetype\tttables.h" />
+    <ClInclude Include="freetype\tttags.h" />
+    <ClInclude Include="GameOjbects\GaiLun.h" />
+    <ClInclude Include="GameOjbects\CityDoor.h" />
+    <ClInclude Include="GameOjbects\Grass1.h" />
+    <ClInclude Include="Manager\HeapResourceManager.h" />
+    <ClInclude Include="Manager\CameraManager.h" />
+    <ClInclude Include="Compoents\Component.h" />
+    <ClInclude Include="FrameResource.h" />
+    <ClInclude Include="Compoents\GameObject.h" />
+    <ClInclude Include="Manager\GameObjectManager.h" />
+    <ClInclude Include="Manager\Manager.h" />
+    <ClInclude Include="Manager\MaterialManager.h" />
+    <ClInclude Include="Compoents\MeshRender.h" />
+    <ClInclude Include="ModelObj.h" />
+    <ClInclude Include="Manager\PSOManager.h" />
+    <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Manager\TextureManager.h" />
+    <ClInclude Include="Compoents\Transform.h" />
+    <ClInclude Include="Manager\RenderManager.h" />
+    <ClInclude Include="GameOjbects\Plane.h" />
+    <ClInclude Include="GameOjbects\Specular.h" />
+    <ClInclude Include="Effects\ShadowMap.h" />
+    <ClInclude Include="GameOjbects\SkyBox.h" />
+    <ClInclude Include="Effects\ScreenPostMap.h" />
+    <ClInclude Include="Effects\Ssao.h" />
+    <ClInclude Include="GameOjbects\ScreenRenderObj.h" />
+    <ClInclude Include="GameOjbects\UISprite.h" />
+    <ClInclude Include="GameOjbects\UIText.h" />
+    <ClInclude Include="GameOjbects\Text3D.h" />
+    <ClInclude Include="GameOjbects\SkullParticle.h" />
+    <ClInclude Include="GameOjbects\ScriptLand.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

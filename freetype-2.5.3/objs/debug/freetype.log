@@ -1,0 +1,67 @@
+﻿  autofit.c
+  bdf.c
+  cff.c
+  ftbase.c
+  ftbitmap.c
+  ftcache.c
+  ftfstype.c
+  ftgasp.c
+  ftglyph.c
+  ftgzip.c
+  ftinit.c
+  ftlzw.c
+  ftstroke.c
+  ftsystem.c
+  smooth.c
+  ftbbox.c
+  ftmm.c
+  ftpfr.c
+  ftsynth.c
+  fttype1.c
+  ftwinfnt.c
+  ftxf86.c
+  ftlcdfil.c
+  ftgxval.c
+  ftotval.c
+g:\freetype-2.5.3\src\autofit\afblue.c : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 ..\..\..\src\autofit\autofit.c)
+  ftpatent.c
+  pcf.c
+  pfr.c
+  psaux.c
+g:\freetype-2.5.3\src\autofit\afglobal.c(179): warning C4389: “==”: 有符号/无符号不匹配 (编译源文件 ..\..\..\src\autofit\autofit.c)
+g:\freetype-2.5.3\src\autofit\afglobal.c(141): warning C4245: “初始化”: 从“int”转换到“FT_UInt”，有符号/无符号不匹配 (编译源文件 ..\..\..\src\autofit\autofit.c)
+  pshinter.c
+  psmodule.c
+  raster.c
+  sfnt.c
+  truetype.c
+  type1.c
+  type1cid.c
+  type42.c
+  winfnt.c
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(504): warning C4244: “=”: 从“FT_ULong”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(505): warning C4244: “=”: 从“int”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(506): warning C4244: “=”: 从“FT_UInt”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(507): warning C4244: “=”: 从“FT_UInt”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(508): warning C4244: “=”: 从“FT_UInt”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(645): warning C4244: “=”: 从“FT_ULong”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(646): warning C4244: “=”: 从“FT_ULong”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(647): warning C4244: “=”: 从“FT_ULong”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\sfobjs.c(648): warning C4244: “=”: 从“FT_ULong”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\truetype\ttgload.c(102): warning C4244: “=”: 从“FT_Pos”转换到“FT_Short”，可能丢失数据 (编译源文件 ..\..\..\src\truetype\truetype.c)
+g:\freetype-2.5.3\src\truetype\ttgload.c(108): warning C4244: “=”: 从“FT_Pos”转换到“FT_Short”，可能丢失数据 (编译源文件 ..\..\..\src\truetype\truetype.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(291): warning C4244: “=”: 从“FT_UInt”转换到“FT_UShort”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(292): warning C4244: “=”: 从“FT_UInt”转换到“FT_UShort”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(803): warning C4244: “初始化”: 从“FT_Short”转换到“FT_Char”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(804): warning C4244: “初始化”: 从“FT_Short”转换到“FT_Char”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(805): warning C4244: “初始化”: 从“FT_UShort”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(806): warning C4244: “初始化”: 从“FT_Short”转换到“FT_Char”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(807): warning C4244: “初始化”: 从“FT_Short”转换到“FT_Char”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(808): warning C4244: “初始化”: 从“FT_UShort”转换到“FT_Byte”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(1355): warning C4244: “=”: 从“FT_Int”转换到“FT_Short”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\sfnt\ttsbit.c(1356): warning C4244: “=”: 从“int”转换到“FT_Short”，可能丢失数据 (编译源文件 ..\..\..\src\sfnt\sfnt.c)
+g:\freetype-2.5.3\src\autofit\afmodule.c(106): warning C4389: “==”: 有符号/无符号不匹配 (编译源文件 ..\..\..\src\autofit\autofit.c)
+g:\freetype-2.5.3\src\autofit\aflatin.c(604): warning C4701: 使用了可能未初始化的局部变量“p_first”
+g:\freetype-2.5.3\src\autofit\aflatin.c(653): warning C4701: 使用了可能未初始化的局部变量“p_last”
+  ftdebug.c
+  freetype.vcxproj -> G:\freetype-2.5.3\builds\windows\vc2010\.\..\..\..\objs\win64\vc2010\freetype253_D.lib
