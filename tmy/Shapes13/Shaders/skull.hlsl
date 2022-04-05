@@ -88,7 +88,9 @@ void GS(point VertexOut gin[1],
 
 float4 PS(GeoOut pin) : SV_Target
 {
-	return float4(1,0,0,1);
+	//float4 renderTex = gDiffuseMap[skullIndex].Sample(gsamPointWrap, pin.TexC);
+	//return renderTex;
+	return float4(1,0,0,0);
 }
 
 

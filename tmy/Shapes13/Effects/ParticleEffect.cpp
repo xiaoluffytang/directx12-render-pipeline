@@ -1,10 +1,11 @@
 #include "ParticleEffect.h"
+#include "../Engine/Manager/Manager.h"
+extern Manager* manager;
 
 
-
-ParticleEffect::ParticleEffect(ID3D12Device* device)
+ParticleEffect::ParticleEffect()
 {
-	particleData = std::make_unique<UploadBuffer<ParticleConstant>>(device, 1, true);
+	particleData = std::make_unique<UploadBuffer<ParticleConstant>>(manager->commonInterface.md3dDevice.Get(), 1, true);
 }
 
 
@@ -12,13 +13,12 @@ ParticleEffect::~ParticleEffect()
 {
 }
 
-void ParticleEffect::InitPos(ID3D12Device* md3dDevice, ID3D12GraphicsCommandList* commandList)
+void ParticleEffect::InitPos()
 {
-	poss = d3dUtil::CreateDefaultBuffer(md3dDevice, commandList, pos, posCount * sizeof(XMFLOAT3), temp);
+	poss = d3dUtil::CreateDefaultBuffer(manager->commonInterface.md3dDevice.Get(), manager->commonInterface.mCommandList.Get(), pos, posCount * sizeof(XMFLOAT3), temp);
 }
 
-void ParticleEffect::BuildParticleTex(ID3D12Device* md3dDevice, ID3D12GraphicsCommandList* commandList
-	, ID3D12DescriptorHeap* heap, int startIndex, int mCbvSrvUavDescriptorSize)
+void ParticleEffect::BuildParticleTex()
 {
 	int width = 256;
 	int height = 256; 
@@ -36,33 +36,9 @@ void ParticleEffect::BuildParticleTex(ID3D12Device* md3dDevice, ID3D12GraphicsCo
 	texDesc.SampleDesc.Quality = 0;
 	texDesc.Layout = D3D12_TEXTURE_LAYOUT_UNKNOWN;
 	texDesc.Flags = D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
-	ThrowIfFailed(md3dDevice->CreateCommittedResource(
-		&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT),
-		D3D12_HEAP_FLAG_NONE,
-		&texDesc,
-		D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE,
-		nullptr,
-		IID_PPV_ARGS(&tex)));
-	//ÉèÖÃÃèÊö·û
-	CD3DX12_CPU_DESCRIPTOR_HANDLE cpuSrvHandle(heap->GetCPUDescriptorHandleForHeapStart(), startIndex, mCbvSrvUavDescriptorSize);
-	this->srvHandle = CD3DX12_GPU_DESCRIPTOR_HANDLE(heap->GetGPUDescriptorHandleForHeapStart(), startIndex, mCbvSrvUavDescriptorSize);
-	CD3DX12_CPU_DESCRIPTOR_HANDLE cpuUavHandle(heap->GetCPUDescriptorHandleForHeapStart(), startIndex + 1, mCbvSrvUavDescriptorSize);
-	this->uavHandle = CD3DX12_GPU_DESCRIPTOR_HANDLE(heap->GetGPUDescriptorHandleForHeapStart(), startIndex + 1, mCbvSrvUavDescriptorSize);
-	CD3DX12_CPU_DESCRIPTOR_HANDLE posCpuUavHandle(heap->GetCPUDescriptorHandleForHeapStart(), startIndex + 2, mCbvSrvUavDescriptorSize);
-	this->posUavHandle = CD3DX12_GPU_DESCRIPTOR_HANDLE(heap->GetGPUDescriptorHandleForHeapStart(), startIndex + 2, mCbvSrvUavDescriptorSize);
-	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
-	srvDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-	srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
-	srvDesc.Texture2D.MostDetailedMip = 0;
-	srvDesc.Texture2D.MipLevels = 1;
-	srvDesc.Texture2D.ResourceMinLODClamp = 0.0f;
-	md3dDevice->CreateShaderResourceView(tex, &srvDesc, cpuSrvHandle);
-	D3D12_UNORDERED_ACCESS_VIEW_DESC uavDesc = {};
-	uavDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-	uavDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2D;
-	uavDesc.Texture2D.MipSlice = 0;
-	md3dDevice->CreateUnorderedAccessView(tex, nullptr, &uavDesc, cpuUavHandle);
+	texture = new Texture2DResource();
+	texture->LoadTextureByDesc(&texDesc, nullptr);
+	texture->CreateUavIndexDescriptor();
 }
 
 void ParticleEffect::ComputePos(ID3D12GraphicsCommandList* command, ID3D12RootSignature* rootSig, std::unordered_map<std::string, ID3D12PipelineState*> mPsos,
@@ -78,7 +54,7 @@ void ParticleEffect::ComputePos(ID3D12GraphicsCommandList* command, ID3D12RootSi
 
 	command->SetComputeRootSignature(rootSig);
 	command->SetComputeRootConstantBufferView(0, particleData->Resource()->GetGPUVirtualAddress());
-	command->SetComputeRootDescriptorTable(1, uavHandle);
+	command->SetComputeRootDescriptorTable(1, texture->GetUavGpuHandle());
 	command->SetComputeRootShaderResourceView(2, poss->GetGPUVirtualAddress());
 
 	std::string pso = (cycleCount % 2 == 0) ? "ParticleDieAndMove1" : "ParticleDieAndMove2";

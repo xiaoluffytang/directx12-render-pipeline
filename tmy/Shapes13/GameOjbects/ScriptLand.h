@@ -1,5 +1,5 @@
 #pragma once
-#include "../Compoents/GameObject.h"
+#include "../Engine/Compoents/GameObject.h"
 class ScriptLand : public GameObject
 {
 public:

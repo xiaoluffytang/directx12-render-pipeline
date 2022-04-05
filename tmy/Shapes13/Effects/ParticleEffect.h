@@ -1,6 +1,7 @@
 #pragma once
-#include "../../../Common/d3dUtil.h"
-#include "../FrameResource.h"
+#include "../Engine/Common/d3dUtil.h"
+#include "../Engine/Common/FrameResource.h"
+#include "../Engine/Texture/Texture2DResource.h"
 using namespace DirectX;
 
 struct ParticleConstant
@@ -14,23 +15,20 @@ struct ParticleConstant
 class ParticleEffect
 {
 public:
-	ParticleEffect(ID3D12Device* device);
+	ParticleEffect();
 	~ParticleEffect();
 
 	XMFLOAT3* pos;    //所有粒子初始位置
 	int posCount = 0;   //粒子总数
 	
-	void InitPos(ID3D12Device* md3dDevice, ID3D12GraphicsCommandList* commandList);
-	void BuildParticleTex(ID3D12Device* md3dDevice, ID3D12GraphicsCommandList* commandList, ID3D12DescriptorHeap* heap, int startIndex, int mCbvSrvUavDescriptorSize);
+	void InitPos();
+	void BuildParticleTex();
 	void ComputePos(ID3D12GraphicsCommandList* command, ID3D12RootSignature* rootSig, std::unordered_map<std::string, ID3D12PipelineState*> mPsos,
 		float time);
 	std::unique_ptr<UploadBuffer<ParticleConstant>> particleData = nullptr;
 
-private:
-	D3D12_GPU_DESCRIPTOR_HANDLE srvHandle;
-	D3D12_GPU_DESCRIPTOR_HANDLE uavHandle;
-	D3D12_GPU_DESCRIPTOR_HANDLE posUavHandle;
-	ID3D12Resource* tex = nullptr;    //；粒子特效信息贴图
+public:
+	Texture2DResource* texture = nullptr;   //粒子特效信息贴图
 	Microsoft::WRL::ComPtr<ID3D12Resource> poss;  //粒子初始位置
 	Microsoft::WRL::ComPtr<ID3D12Resource> temp;
 	ParticleConstant data;

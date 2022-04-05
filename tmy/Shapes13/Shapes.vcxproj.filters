@@ -15,73 +15,52 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FrameResource.cpp">
+    <ClCompile Include="Engine\Common\FrameResource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ShapesApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\d3dApp.cpp">
+    <ClCompile Include="Engine\Model3D\ModelObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\d3dUtil.cpp">
+    <ClCompile Include="Engine\Compoents\Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\GameTimer.cpp">
+    <ClCompile Include="Engine\Compoents\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\GeometryGenerator.cpp">
+    <ClCompile Include="Engine\Compoents\Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\MathHelper.cpp">
+    <ClCompile Include="Engine\Compoents\MeshRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\DDSTextureLoader.cpp">
+    <ClCompile Include="Engine\Manager\CameraManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ModelObj.cpp">
+    <ClCompile Include="Engine\Manager\GameObjectManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Compoents\Component.cpp">
+    <ClCompile Include="Engine\Manager\MaterialManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Compoents\GameObject.cpp">
+    <ClCompile Include="Engine\Manager\TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Compoents\Transform.cpp">
+    <ClCompile Include="Engine\Manager\PSOManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Compoents\MeshRender.cpp">
+    <ClCompile Include="Engine\Manager\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Common\Camera.cpp">
+    <ClCompile Include="Engine\Manager\Manager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\CameraManager.cpp">
+    <ClCompile Include="Engine\Manager\HeapResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\GameObjectManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\MaterialManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\PSOManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\SceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\HeapResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\RenderManager.cpp">
+    <ClCompile Include="Engine\Manager\RenderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameOjbects\CityDoor.cpp">
@@ -105,9 +84,6 @@
     <ClCompile Include="Effects\ScreenPostMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Effects\Ssao.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameOjbects\ScreenRenderObj.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -117,49 +93,49 @@
     <ClCompile Include="Effects\Blur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font\Font.cpp">
+    <ClCompile Include="Engine\font\Font.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\FontManager.cpp">
+    <ClCompile Include="Engine\Manager\FontManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameOjbects\UIText.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\Font3D.cpp">
+    <ClCompile Include="Engine\font3D\Font3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\ftgl\Contour.cpp">
+    <ClCompile Include="Engine\font3D\ftgl\Contour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\ftgl\Point.cpp">
+    <ClCompile Include="Engine\font3D\ftgl\Point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\ftgl\Vectoriser.cpp">
+    <ClCompile Include="Engine\font3D\ftgl\Vectoriser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\poly2tri\common\shapes.cc">
+    <ClCompile Include="Engine\font3D\poly2tri\common\shapes.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\poly2tri\sweep\advancing_front.cc">
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\advancing_front.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\poly2tri\sweep\cdt.cc">
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\cdt.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\poly2tri\sweep\sweep.cc">
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\sweep.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="font3D\poly2tri\sweep\sweep_context.cc">
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\sweep_context.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameOjbects\Text3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Animator\LoadM3d.cpp">
+    <ClCompile Include="Engine\Animator\LoadM3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Animator\SkinnedData.cpp">
+    <ClCompile Include="Engine\Animator\SkinnedData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameOjbects\AnimatorRole.cpp">
@@ -189,78 +165,102 @@
     <ClCompile Include="GameOjbects\ScriptLand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Texture\Texture2DResource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Texture\Texture3DResource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Common\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Common\d3dApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Common\d3dUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Common\DDSTextureLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Common\GameTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Common\GeometryGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Common\MathHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\RenderPass\RenderPassBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\RenderPass\RenderPassDefault.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\RenderPass\RenderPassRenderList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Center\RenderPass\RenderPassTabMirror.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Center\RenderPass\RenderPassRenderMirror.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Center\RenderPass\RenderPassShadow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\RenderPipeline\RenderPipeline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Center\RenderPipeline\MyForwardRenderPipeline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FrameResource.h">
+    <ClInclude Include="Engine\Common\FrameResource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\d3dApp.h">
+    <ClInclude Include="Engine\Model3D\ModelObj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\d3dUtil.h">
+    <ClInclude Include="Engine\Compoents\Component.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\d3dx12.h">
+    <ClInclude Include="Engine\Compoents\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\GameTimer.h">
+    <ClInclude Include="Engine\Compoents\Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\GeometryGenerator.h">
+    <ClInclude Include="Engine\Compoents\MeshRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\MathHelper.h">
+    <ClInclude Include="Engine\Manager\CameraManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\UploadBuffer.h">
+    <ClInclude Include="Engine\Manager\GameObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\DDSTextureLoader.h">
+    <ClInclude Include="Engine\Manager\MaterialManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ModelObj.h">
+    <ClInclude Include="Engine\Manager\TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Compoents\Component.h">
+    <ClInclude Include="Engine\Manager\PSOManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Compoents\GameObject.h">
+    <ClInclude Include="Engine\Manager\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Compoents\Transform.h">
+    <ClInclude Include="Engine\Manager\Manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Compoents\MeshRender.h">
+    <ClInclude Include="Engine\Manager\HeapResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\Camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\CameraManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\GameObjectManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\MaterialManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\PSOManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\SceneManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Manager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\HeapResourceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\RenderManager.h">
+    <ClInclude Include="Engine\Manager\RenderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameOjbects\CityDoor.h">
@@ -282,9 +282,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Effects\ScreenPostMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Effects\Ssao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameOjbects\ScreenRenderObj.h">
@@ -842,55 +839,55 @@
     <ClInclude Include="freetype\tttags.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font\Font.h">
+    <ClInclude Include="Engine\font\Font.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\FontManager.h">
+    <ClInclude Include="Engine\Manager\FontManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameOjbects\UIText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\Font3D.h">
+    <ClInclude Include="Engine\font3D\Font3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\ftgl\Contour.h">
+    <ClInclude Include="Engine\font3D\ftgl\Contour.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\ftgl\Point.h">
+    <ClInclude Include="Engine\font3D\ftgl\Point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\ftgl\Vectoriser.h">
+    <ClInclude Include="Engine\font3D\ftgl\Vectoriser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\poly2tri\common\shapes.h">
+    <ClInclude Include="Engine\font3D\poly2tri\common\shapes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\poly2tri\common\utils.h">
+    <ClInclude Include="Engine\font3D\poly2tri\common\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\poly2tri\sweep\advancing_front.h">
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\advancing_front.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\poly2tri\sweep\cdt.h">
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\cdt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\poly2tri\sweep\sweep.h">
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\sweep.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\poly2tri\sweep\sweep_context.h">
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\sweep_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="font3D\poly2tri\poly2tri.h">
+    <ClInclude Include="Engine\font3D\poly2tri\poly2tri.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameOjbects\Text3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Animator\LoadM3d.h">
+    <ClInclude Include="Engine\Animator\LoadM3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Animator\SkinnedData.h">
+    <ClInclude Include="Engine\Animator\SkinnedData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameOjbects\AnimatorRole.h">
@@ -918,6 +915,69 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameOjbects\ScriptLand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Texture\Texture2DResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\EngineUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Texture\Texture3DResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\d3dApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\d3dUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\d3dx12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\DDSTextureLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\GameTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\GeometryGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\MathHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Common\UploadBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\RenderPass\RenderPassBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\RenderPass\RenderPassDefault.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\RenderPass\RenderPassRenderList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Center\RenderPass\RenderPassTabMirror.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Center\RenderPass\RenderPassRenderMirror.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Center\RenderPass\RenderPassShadow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\RenderPipeline\RenderPipeline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Center\RenderPipeline\MyForwardRenderPipeline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

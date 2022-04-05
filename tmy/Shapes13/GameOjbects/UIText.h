@@ -1,6 +1,6 @@
 #pragma once
-#include "../Compoents/GameObject.h"
-#include "../font/Font.h"
+#include "../Engine/Compoents/GameObject.h"
+#include "../Engine/font/Font.h"
 class UIText : public GameObject
 {
 public:

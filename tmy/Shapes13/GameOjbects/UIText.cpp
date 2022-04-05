@@ -1,7 +1,5 @@
 #include "UIText.h"
 
-
-
 UIText::UIText(MeshGeometry* mesh, int objIndex, string submeshName, Material* material,Font* font) :GameObject(mesh, objIndex, submeshName, material)
 {
 	this->font = font;
@@ -64,7 +62,7 @@ void UIText::SetText(string str)
 		XMStoreFloat4x4(matrix, m);
 		Instances[index] = InstanceData();
 		Instances[index].World = *matrix;
-		Instances[index].MaterialIndex = 8;
+		Instances[index].MaterialIndex = meshrender->material->MatCBIndex;
 		Instances[index++].TexTransform = XMFLOAT4X4(
 			info->rightBottomU - info->leftTopU, 0, 0, info->leftTopU,
 			0, info->rightBottomV - info->leftTopV, 0, info->leftTopV,

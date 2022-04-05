@@ -1,14 +1,12 @@
 #include "FFTOcean.h"
+#include "../Engine/Manager/Manager.h"
+extern Manager* manager;
 
-
-FFTOcean::FFTOcean(ID3D12Device* device)
+FFTOcean::FFTOcean()
 {
-	md3dDevice = device;
-	BuildResources();
-
 	//海洋数据
-	oceanData = std::make_unique<UploadBuffer<OceanData>>(device, 1, true);
-	oceanRenderIndexs = std::make_unique<UploadBuffer<OceanRenderConstant>>(device, 1, true);
+	oceanData = std::make_unique<UploadBuffer<OceanData>>(manager->commonInterface.md3dDevice.Get(), 1, true);
+	oceanRenderIndexs = std::make_unique<UploadBuffer<OceanRenderConstant>>(manager->commonInterface.md3dDevice.Get(), 1, true);
 }
 
 
@@ -16,42 +14,7 @@ FFTOcean::~FFTOcean()
 {
 }
 
-void FFTOcean::BuildDescriptors(ID3D12DescriptorHeap* heap,
-	int index, int descriptorSize)
-{
-	CD3DX12_CPU_DESCRIPTOR_HANDLE handle(heap->GetCPUDescriptorHandleForHeapStart(), index, descriptorSize);
-	D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
-	srvDesc.Shader4ComponentMapping = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
-	srvDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-	srvDesc.ViewDimension = D3D12_SRV_DIMENSION_TEXTURE2D;
-	srvDesc.Texture2D.MostDetailedMip = 0;
-	srvDesc.Texture2D.MipLevels = 1;
-	srvDesc.Texture2D.ResourceMinLODClamp = 0.0f;
-
-	D3D12_UNORDERED_ACCESS_VIEW_DESC uavDesc = {};
-	uavDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
-	uavDesc.ViewDimension = D3D12_UAV_DIMENSION_TEXTURE2D;
-	uavDesc.Texture2D.MipSlice = 0;
-
-	int srvIndex = index;
-	int uavIndex = index + texCount;
-	for (int i = 0; i < texCount; i++)
-	{
-		CD3DX12_CPU_DESCRIPTOR_HANDLE cpuSrv(heap->GetCPUDescriptorHandleForHeapStart(), srvIndex, descriptorSize);
-		CD3DX12_GPU_DESCRIPTOR_HANDLE gpuSrv(heap->GetGPUDescriptorHandleForHeapStart(), srvIndex++, descriptorSize);
-		mhGpuSrvs.push_back(gpuSrv);
-		md3dDevice->CreateShaderResourceView(resources[i], &srvDesc, cpuSrv);
-		
-		CD3DX12_CPU_DESCRIPTOR_HANDLE cpuUav(heap->GetCPUDescriptorHandleForHeapStart(), uavIndex, descriptorSize);
-		CD3DX12_GPU_DESCRIPTOR_HANDLE gpuUav(heap->GetGPUDescriptorHandleForHeapStart(), uavIndex++, descriptorSize);
-		mhGpuUavs.push_back(gpuUav);
-		md3dDevice->CreateUnorderedAccessView(resources[i], nullptr, &uavDesc, cpuUav);
-	}
-	this->startIndex = index;
-}
-
-//创建纹理资源
-void FFTOcean::BuildResources()
+void FFTOcean::BuildDescriptors()
 {
 	fftSize = pow(2, FFTPow);
 	computeCount = fftSize / 8;
@@ -71,24 +34,14 @@ void FFTOcean::BuildResources()
 
 	for (int i = 0; i < texCount; i++)
 	{
-		BuildOneResource(texDesc);
+		Texture2DResource* texture = new Texture2DResource();
+		texture->LoadTextureByDesc(&texDesc, nullptr);
+		texture->CreateUavIndexDescriptor();
+		textures.push_back(texture);
+		mhGpuSrvs.push_back(texture->GetSrvGpuHandle());
+		mhGpuUavs.push_back(texture->GetUavGpuHandle());
 	}
 }
-
-void FFTOcean::BuildOneResource(D3D12_RESOURCE_DESC& texDesc)
-{
-	ID3D12Resource* r;
-	resources.push_back(r);
-	int index = resources.size() - 1;
-	ThrowIfFailed(md3dDevice->CreateCommittedResource(
-		&CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT),
-		D3D12_HEAP_FLAG_NONE,
-		&texDesc,
-		D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE,
-		nullptr,
-		IID_PPV_ARGS(&resources[index])));
-}
-
 
 void FFTOcean::ComputeOcean(ID3D12GraphicsCommandList* command, ID3D12RootSignature* rootSig, std::unordered_map<std::string, ID3D12PipelineState*> mPsos,
 	float time)
@@ -219,9 +172,9 @@ void FFTOcean::setFFTData(ID3D12GraphicsCommandList* command)
 void FFTOcean::SetOceanTextureIndex(ID3D12GraphicsCommandList* command,int rootSignatureParamIndex)
 {
 	OceanRenderConstant data;
-	data.displaceIndex = startIndex + outputRTIndex;
-	data.normalIndex = startIndex + heightSpectrumRTIndex;
-	data.buddlesIndex = startIndex + DisplaceXSpectrumRTIndex;
+	data.displaceIndex = textures[outputRTIndex]->srvIndex;
+	data.normalIndex = textures[heightSpectrumRTIndex]->srvIndex;
+	data.buddlesIndex = textures[DisplaceXSpectrumRTIndex]->srvIndex;
 
 	oceanRenderIndexs->CopyData(0, data);
 	command->SetGraphicsRootConstantBufferView(rootSignatureParamIndex, oceanRenderIndexs->Resource()->GetGPUVirtualAddress());

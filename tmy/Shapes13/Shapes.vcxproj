@@ -22,32 +22,32 @@
     <ProjectGuid>{3F4D6E80-3635-4577-B6AC-CE8B90068BDD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Shapes</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -82,9 +82,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>..\freetype-2.5.3\objs\win64\vc2010;$(LibraryPath)</LibraryPath>
+    <LibraryPath>.\libs\freetype-2.5.3\objs\win64\vc2010;$(LibraryPath)</LibraryPath>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>..\..\freetype-2.5.3\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\libs\freetype-2.5.3\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -147,102 +147,113 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>..\..\freetype-2.5.3\objs\win64\vc2010\freetype253_D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>.\libs\freetype-2.5.3\objs\win64\vc2010\freetype253_D.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Common\Camera.cpp" />
-    <ClCompile Include="..\..\Common\d3dApp.cpp" />
-    <ClCompile Include="..\..\Common\d3dUtil.cpp" />
-    <ClCompile Include="..\..\Common\DDSTextureLoader.cpp" />
-    <ClCompile Include="..\..\Common\GameTimer.cpp" />
-    <ClCompile Include="..\..\Common\GeometryGenerator.cpp" />
-    <ClCompile Include="..\..\Common\MathHelper.cpp" />
+    <ClCompile Include="Engine\Common\Camera.cpp" />
+    <ClCompile Include="Engine\Common\d3dApp.cpp" />
+    <ClCompile Include="Engine\Common\d3dUtil.cpp" />
+    <ClCompile Include="Engine\Common\DDSTextureLoader.cpp" />
+    <ClCompile Include="Engine\Common\GameTimer.cpp" />
+    <ClCompile Include="Engine\Common\GeometryGenerator.cpp" />
+    <ClCompile Include="Engine\Common\MathHelper.cpp" />
     <ClCompile Include="Effects\CubeRenderTarget.cpp" />
     <ClCompile Include="Effects\FFTOcean.cpp" />
     <ClCompile Include="Effects\ParticleEffect.cpp" />
     <ClCompile Include="GameOjbects\AnimatorRole.cpp" />
-    <ClCompile Include="Animator\LoadM3d.cpp" />
-    <ClCompile Include="Animator\SkinnedData.cpp" />
-    <ClCompile Include="font3D\Font3D.cpp" />
-    <ClCompile Include="font3D\ftgl\Contour.cpp" />
-    <ClCompile Include="font3D\ftgl\Point.cpp" />
-    <ClCompile Include="font3D\ftgl\Vectoriser.cpp" />
-    <ClCompile Include="font3D\poly2tri\common\shapes.cc" />
-    <ClCompile Include="font3D\poly2tri\sweep\advancing_front.cc" />
-    <ClCompile Include="font3D\poly2tri\sweep\cdt.cc" />
-    <ClCompile Include="font3D\poly2tri\sweep\sweep.cc" />
-    <ClCompile Include="font3D\poly2tri\sweep\sweep_context.cc" />
+    <ClCompile Include="Engine\Animator\LoadM3d.cpp" />
+    <ClCompile Include="Engine\Animator\SkinnedData.cpp" />
+    <ClCompile Include="Engine\font3D\Font3D.cpp" />
+    <ClCompile Include="Engine\font3D\ftgl\Contour.cpp" />
+    <ClCompile Include="Engine\font3D\ftgl\Point.cpp" />
+    <ClCompile Include="Engine\font3D\ftgl\Vectoriser.cpp" />
+    <ClCompile Include="Engine\font3D\poly2tri\common\shapes.cc" />
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\advancing_front.cc" />
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\cdt.cc" />
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\sweep.cc" />
+    <ClCompile Include="Engine\font3D\poly2tri\sweep\sweep_context.cc" />
     <ClCompile Include="GameOjbects\Sphere.cpp" />
     <ClCompile Include="GameOjbects\Water.cpp" />
-    <ClCompile Include="Manager\FontManager.cpp" />
+    <ClCompile Include="Engine\Manager\FontManager.cpp" />
     <ClCompile Include="Effects\Blur.cpp" />
-    <ClCompile Include="font\Font.cpp" />
+    <ClCompile Include="Engine\font\Font.cpp" />
     <ClCompile Include="GameOjbects\GaiLun.cpp" />
     <ClCompile Include="GameOjbects\CityDoor.cpp" />
     <ClCompile Include="GameOjbects\Grass1.cpp" />
-    <ClCompile Include="Manager\HeapResourceManager.cpp" />
-    <ClCompile Include="Manager\CameraManager.cpp" />
-    <ClCompile Include="Compoents\Component.cpp" />
-    <ClCompile Include="FrameResource.cpp" />
-    <ClCompile Include="Compoents\GameObject.cpp" />
-    <ClCompile Include="Manager\GameObjectManager.cpp" />
-    <ClCompile Include="Manager\Manager.cpp" />
-    <ClCompile Include="Manager\MaterialManager.cpp" />
-    <ClCompile Include="Compoents\MeshRender.cpp" />
-    <ClCompile Include="ModelObj.cpp" />
-    <ClCompile Include="Manager\PSOManager.cpp" />
-    <ClCompile Include="Manager\SceneManager.cpp" />
-    <ClCompile Include="Manager\RenderManager.cpp" />
+    <ClCompile Include="Engine\Manager\HeapResourceManager.cpp" />
+    <ClCompile Include="Engine\Manager\CameraManager.cpp" />
+    <ClCompile Include="Engine\Compoents\Component.cpp" />
+    <ClCompile Include="Engine\Common\FrameResource.cpp" />
+    <ClCompile Include="Engine\Compoents\GameObject.cpp" />
+    <ClCompile Include="Engine\Manager\GameObjectManager.cpp" />
+    <ClCompile Include="Engine\Manager\Manager.cpp" />
+    <ClCompile Include="Engine\Manager\MaterialManager.cpp" />
+    <ClCompile Include="Engine\Compoents\MeshRender.cpp" />
+    <ClCompile Include="Engine\Model3D\ModelObj.cpp" />
+    <ClCompile Include="Engine\Manager\PSOManager.cpp" />
+    <ClCompile Include="Engine\Manager\SceneManager.cpp" />
+    <ClCompile Include="Engine\Manager\RenderManager.cpp" />
     <ClCompile Include="GameOjbects\Plane.cpp" />
     <ClCompile Include="Effects\ShadowMap.cpp" />
     <ClCompile Include="Effects\ScreenPostMap.cpp" />
     <ClCompile Include="GameOjbects\ScreenRenderObj.cpp" />
     <ClCompile Include="GameOjbects\ScriptLand.cpp" />
+    <ClCompile Include="Engine\RenderPass\RenderPassBase.cpp" />
+    <ClCompile Include="Engine\RenderPass\RenderPassDefault.cpp" />
+    <ClCompile Include="Engine\RenderPass\RenderPassRenderList.cpp" />
+    <ClCompile Include="Center\RenderPass\RenderPassRenderMirror.cpp" />
+    <ClCompile Include="Center\RenderPass\RenderPassTabMirror.cpp" />
+    <ClCompile Include="Center\RenderPass\RenderPassShadow.cpp" />
+    <ClCompile Include="Engine\RenderPipeline\RenderPipeline.cpp" />
+    <ClCompile Include="Center\RenderPipeline\MyForwardRenderPipeline.cpp" />
     <ClCompile Include="ShapesApp.cpp" />
-    <ClCompile Include="Manager\TextureManager.cpp" />
-    <ClCompile Include="Compoents\Transform.cpp" />
+    <ClCompile Include="Engine\Manager\TextureManager.cpp" />
+    <ClCompile Include="Engine\Compoents\Transform.cpp" />
     <ClCompile Include="GameOjbects\Specular.cpp" />
     <ClCompile Include="GameOjbects\SkyBox.cpp" />
-    <ClCompile Include="Effects\Ssao.cpp" />
     <ClCompile Include="GameOjbects\UISprite.cpp" />
     <ClCompile Include="GameOjbects\UIText.cpp" />
     <ClCompile Include="GameOjbects\Text3D.cpp" />
     <ClCompile Include="GameOjbects\SkullParticle.cpp" />
+    <ClCompile Include="Engine\Texture\Texture2DResource.cpp" />
+    <ClCompile Include="Engine\Texture\Texture3DResource.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Common\Camera.h" />
-    <ClInclude Include="..\..\Common\d3dApp.h" />
-    <ClInclude Include="..\..\Common\d3dUtil.h" />
-    <ClInclude Include="..\..\Common\d3dx12.h" />
-    <ClInclude Include="..\..\Common\DDSTextureLoader.h" />
-    <ClInclude Include="..\..\Common\GameTimer.h" />
-    <ClInclude Include="..\..\Common\GeometryGenerator.h" />
-    <ClInclude Include="..\..\Common\MathHelper.h" />
-    <ClInclude Include="..\..\Common\UploadBuffer.h" />
+    <ClInclude Include="Engine\Common\Camera.h" />
+    <ClInclude Include="Engine\Common\d3dApp.h" />
+    <ClInclude Include="Engine\Common\d3dUtil.h" />
+    <ClInclude Include="Engine\Common\d3dx12.h" />
+    <ClInclude Include="Engine\Common\DDSTextureLoader.h" />
+    <ClInclude Include="Engine\Common\GameTimer.h" />
+    <ClInclude Include="Engine\Common\GeometryGenerator.h" />
+    <ClInclude Include="Engine\Common\MathHelper.h" />
+    <ClInclude Include="Engine\Common\UploadBuffer.h" />
     <ClInclude Include="Effects\CubeRenderTarget.h" />
     <ClInclude Include="Effects\FFTOcean.h" />
     <ClInclude Include="Effects\ParticleEffect.h" />
+    <ClInclude Include="Engine\EngineUtils.h" />
     <ClInclude Include="GameOjbects\AnimatorRole.h" />
-    <ClInclude Include="Animator\LoadM3d.h" />
-    <ClInclude Include="Animator\SkinnedData.h" />
-    <ClInclude Include="font3D\Font3D.h" />
-    <ClInclude Include="font3D\ftgl\Contour.h" />
-    <ClInclude Include="font3D\ftgl\Point.h" />
-    <ClInclude Include="font3D\ftgl\Vectoriser.h" />
-    <ClInclude Include="font3D\poly2tri\common\shapes.h" />
-    <ClInclude Include="font3D\poly2tri\common\utils.h" />
-    <ClInclude Include="font3D\poly2tri\poly2tri.h" />
-    <ClInclude Include="font3D\poly2tri\sweep\advancing_front.h" />
-    <ClInclude Include="font3D\poly2tri\sweep\cdt.h" />
-    <ClInclude Include="font3D\poly2tri\sweep\sweep.h" />
-    <ClInclude Include="font3D\poly2tri\sweep\sweep_context.h" />
+    <ClInclude Include="Engine\Animator\LoadM3d.h" />
+    <ClInclude Include="Engine\Animator\SkinnedData.h" />
+    <ClInclude Include="Engine\font3D\Font3D.h" />
+    <ClInclude Include="Engine\font3D\ftgl\Contour.h" />
+    <ClInclude Include="Engine\font3D\ftgl\Point.h" />
+    <ClInclude Include="Engine\font3D\ftgl\Vectoriser.h" />
+    <ClInclude Include="Engine\font3D\poly2tri\common\shapes.h" />
+    <ClInclude Include="Engine\font3D\poly2tri\common\utils.h" />
+    <ClInclude Include="Engine\font3D\poly2tri\poly2tri.h" />
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\advancing_front.h" />
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\cdt.h" />
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\sweep.h" />
+    <ClInclude Include="Engine\font3D\poly2tri\sweep\sweep_context.h" />
     <ClInclude Include="GameOjbects\Sphere.h" />
     <ClInclude Include="GameOjbects\Water.h" />
-    <ClInclude Include="Manager\FontManager.h" />
+    <ClInclude Include="Engine\Global.h" />
+    <ClInclude Include="Engine\Manager\FontManager.h" />
     <ClInclude Include="Effects\Blur.h" />
-    <ClInclude Include="font\Font.h" />
+    <ClInclude Include="Engine\font\Font.h" />
     <ClInclude Include="freetype\config\ftconfig.h" />
     <ClInclude Include="freetype\config\ftheader.h" />
     <ClInclude Include="freetype\config\ftmodule.h" />
@@ -428,33 +439,42 @@
     <ClInclude Include="GameOjbects\GaiLun.h" />
     <ClInclude Include="GameOjbects\CityDoor.h" />
     <ClInclude Include="GameOjbects\Grass1.h" />
-    <ClInclude Include="Manager\HeapResourceManager.h" />
-    <ClInclude Include="Manager\CameraManager.h" />
-    <ClInclude Include="Compoents\Component.h" />
-    <ClInclude Include="FrameResource.h" />
-    <ClInclude Include="Compoents\GameObject.h" />
-    <ClInclude Include="Manager\GameObjectManager.h" />
-    <ClInclude Include="Manager\Manager.h" />
-    <ClInclude Include="Manager\MaterialManager.h" />
-    <ClInclude Include="Compoents\MeshRender.h" />
-    <ClInclude Include="ModelObj.h" />
-    <ClInclude Include="Manager\PSOManager.h" />
-    <ClInclude Include="Manager\SceneManager.h" />
-    <ClInclude Include="Manager\TextureManager.h" />
-    <ClInclude Include="Compoents\Transform.h" />
-    <ClInclude Include="Manager\RenderManager.h" />
+    <ClInclude Include="Engine\Manager\HeapResourceManager.h" />
+    <ClInclude Include="Engine\Manager\CameraManager.h" />
+    <ClInclude Include="Engine\Compoents\Component.h" />
+    <ClInclude Include="Engine\Common\FrameResource.h" />
+    <ClInclude Include="Engine\Compoents\GameObject.h" />
+    <ClInclude Include="Engine\Manager\GameObjectManager.h" />
+    <ClInclude Include="Engine\Manager\Manager.h" />
+    <ClInclude Include="Engine\Manager\MaterialManager.h" />
+    <ClInclude Include="Engine\Compoents\MeshRender.h" />
+    <ClInclude Include="Engine\Model3D\ModelObj.h" />
+    <ClInclude Include="Engine\Manager\PSOManager.h" />
+    <ClInclude Include="Engine\Manager\SceneManager.h" />
+    <ClInclude Include="Engine\Manager\TextureManager.h" />
+    <ClInclude Include="Engine\Compoents\Transform.h" />
+    <ClInclude Include="Engine\Manager\RenderManager.h" />
     <ClInclude Include="GameOjbects\Plane.h" />
     <ClInclude Include="GameOjbects\Specular.h" />
     <ClInclude Include="Effects\ShadowMap.h" />
     <ClInclude Include="GameOjbects\SkyBox.h" />
     <ClInclude Include="Effects\ScreenPostMap.h" />
-    <ClInclude Include="Effects\Ssao.h" />
     <ClInclude Include="GameOjbects\ScreenRenderObj.h" />
     <ClInclude Include="GameOjbects\UISprite.h" />
     <ClInclude Include="GameOjbects\UIText.h" />
     <ClInclude Include="GameOjbects\Text3D.h" />
     <ClInclude Include="GameOjbects\SkullParticle.h" />
     <ClInclude Include="GameOjbects\ScriptLand.h" />
+    <ClInclude Include="Engine\Texture\Texture2DResource.h" />
+    <ClInclude Include="Engine\Texture\Texture3DResource.h" />
+    <ClInclude Include="Engine\RenderPass\RenderPassBase.h" />
+    <ClInclude Include="Engine\RenderPass\RenderPassDefault.h" />
+    <ClInclude Include="Engine\RenderPass\RenderPassRenderList.h" />
+    <ClInclude Include="Center\RenderPass\RenderPassRenderMirror.h" />
+    <ClInclude Include="Center\RenderPass\RenderPassTabMirror.h" />
+    <ClInclude Include="Center\RenderPass\RenderPassShadow.h" />
+    <ClInclude Include="Engine\RenderPipeline\RenderPipeline.h" />
+    <ClInclude Include="Center\RenderPipeline\MyForwardRenderPipeline.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

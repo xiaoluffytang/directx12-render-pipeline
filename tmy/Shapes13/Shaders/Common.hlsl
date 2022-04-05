@@ -44,17 +44,12 @@ cbuffer cbPass : register(b0)
 	float4x4 gInvProj;
 	float4x4 gViewProj;
 	float4x4 gInvViewProj;
-	float4x4 gShadowTransform;
 	float3 gEyePosW;
 	float cbPerObjectPad1;
 	float2 gRenderTargetSize;
 	float2 gInvRenderTargetSize;
 	float gNearZ;
 	float gFarZ;
-	float gTotalTime;
-	float gDeltaTime;
-	float4 gAmbientLight;
-	Light DirectLights[MaxLights];
 };
 
 //骨骼
@@ -75,6 +70,10 @@ cbuffer cbPass : register(b2)
 {
 	int blurIndex;   //要模糊的纹理的索引
 	float blurRadius;   //模糊半径
+	float scaleX;
+	float scaleY;
+	int horIndex = 0;
+	int vecIndex = 0;
 }
 
 //海洋渲染贴图索引
@@ -85,12 +84,26 @@ cbuffer cbPass : register(b3)
 	int oceanBuddlesIndex;    //泡沫频谱的纹理索引
 }
 
+//一些常量数据
+cbuffer cbPass : register(b4)
+{
+	float4 gAmbientLight;
+	Light DirectLights[MaxLights];
+	float4x4 gShadowTransform;
+	int depthStencilMapIndex;   //深度模板贴图索引
+	int shadowMapIndex;   //阴影贴图索引
+	int bloomMapIndex;    //bloom贴图索引
+	int skullIndex;     //粒子特效的每个粒子的贴图
+	float gTotalTime;
+	float gDeltaTime;
+}
+
 float CalcShadowFactor(float4 shadowPosH)
 {
 	shadowPosH.xyz /= shadowPosH.w;   //纹理坐标
 	float depth = shadowPosH.z;   //NDC空间下的深度值
 	uint width, height, numMips;
-	gDiffuseMap[0].GetDimensions(0, width, height, numMips);
+	gDiffuseMap[shadowMapIndex].GetDimensions(0, width, height, numMips);
 	float dx = 1.0f / (float)width;
 	float percentLit = 0.0f;
 	const float2 offsets[9] =
@@ -101,7 +114,7 @@ float CalcShadowFactor(float4 shadowPosH)
 	};
 	for (int i = 0; i < 9; ++i)
 	{
-		float r = gDiffuseMap[0].SampleCmpLevelZero(gsamShadow, shadowPosH.xy + offsets[i], depth).r;    //第0张贴图是阴影贴图
+		float r = gDiffuseMap[shadowMapIndex].SampleCmpLevelZero(gsamShadow, shadowPosH.xy + offsets[i], depth).r;    //第0张贴图是阴影贴图
 		percentLit += r;
 	}
 	float p = percentLit / 9.0f;

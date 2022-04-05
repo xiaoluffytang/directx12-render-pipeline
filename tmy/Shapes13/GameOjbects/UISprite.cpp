@@ -1,15 +1,24 @@
 #include "UISprite.h"
-
-
+#include "../Engine/Manager/Manager.h"
+extern Manager* manager;
 
 UISprite::UISprite(MeshGeometry* mesh, int objIndex, string submeshName, Material* material) :GameObject(mesh, objIndex, submeshName, material)
 {
-	vector<XMFLOAT3> scales = { XMFLOAT3(100,50,1),XMFLOAT3(80,80,1) ,XMFLOAT3(80,80,1), XMFLOAT3(80,80,1),XMFLOAT3(250,250,1),XMFLOAT3(256,64,1),XMFLOAT3(256,256,1) };
-	vector<XMFLOAT3> rotations = { XMFLOAT3(0,0,0),XMFLOAT3(0,0,0) ,XMFLOAT3(0,0,0) ,XMFLOAT3(0,0,0),XMFLOAT3(0,0,0),XMFLOAT3(0,0,0),XMFLOAT3(0,0,0) };
-	vector<XMFLOAT3> positions = { XMFLOAT3(-400,150,0),XMFLOAT3(-400,50,0) ,XMFLOAT3(-400,-50,0),XMFLOAT3(-400,-150,0),XMFLOAT3(-200,0,0),XMFLOAT3(150,150,0),XMFLOAT3(-200,-250,0) };
-	vector<int> materialIndexs = { 4,5,6,7,8,15,17};
+	vector<XMFLOAT3> scales = { XMFLOAT3(100,50,1),XMFLOAT3(80,80,1) ,XMFLOAT3(80,80,1), XMFLOAT3(80,80,1),XMFLOAT3(250,250,1),XMFLOAT3(256,256,1) };
+	vector<XMFLOAT3> rotations = { XMFLOAT3(0,0,0),XMFLOAT3(0,0,0) ,XMFLOAT3(0,0,0) ,XMFLOAT3(0,0,0),XMFLOAT3(0,0,0),XMFLOAT3(0,0,0) };
+	vector<XMFLOAT3> positions = { XMFLOAT3(-400,150,0),XMFLOAT3(-400,50,0) ,XMFLOAT3(-400,-50,0),XMFLOAT3(-400,-150,0),XMFLOAT3(-200,0,0),XMFLOAT3(-200,-250,0) };
+	vector<int> materialIndexs = {
+		manager->materialManager->GetMaterial("uiSprite",true)->MatCBIndex,
+		manager->materialManager->GetMaterial("uiShadowMap",true)->MatCBIndex,
+		manager->materialManager->GetMaterial("uiScreenPost",true)->MatCBIndex,
+		manager->materialManager->GetMaterial("uiDepth",true)->MatCBIndex,
+		manager->materialManager->GetMaterial("font",true)->MatCBIndex,
+		manager->materialManager->GetMaterial("particlePosOffsetTex",true)->MatCBIndex,
+	};
+
 	int count = scales.size();
 	Instances = new InstanceData[count];
+	
 	XMFLOAT3 scale;
 	XMFLOAT3 rotation;
 	XMFLOAT3 position;

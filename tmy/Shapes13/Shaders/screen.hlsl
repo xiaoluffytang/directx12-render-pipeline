@@ -46,7 +46,7 @@ float4 FogPS(VertexOut pin) : SV_Target
 	MaterialData matData = gMaterialData[pin.MatIndex];
 	uint diffuseTexIndex = matData.DiffuseMapIndex;      //用第几张贴图
 	float4 renderTex = gDiffuseMap[diffuseTexIndex].Sample(gsamLinearWrap, pin.TexC);    //后台缓冲区的颜色
-	float4 depthStenicTex = gDiffuseMap[2].Sample(gsamLinearWrap, pin.TexC);    //深度值
+	float4 depthStenicTex = gDiffuseMap[depthStencilMapIndex].Sample(gsamLinearWrap, pin.TexC);    //深度值
 	float d = depthStenicTex.r;
 	float z = 1 / (-(gFarZ - gNearZ) * d + gFarZ);
 	float4 fogColor = float4(1, 0.9, 0.9, 1);
@@ -96,8 +96,8 @@ float4 GetBloomPS(VertexOut pin):SV_Target
 	uint diffuseTexIndex = matData.DiffuseMapIndex;      //用第几张贴图
 	float4 renderTex = gDiffuseMap[diffuseTexIndex].Sample(gsamLinearWrap, pin.TexC);    //后台缓冲区的颜色
 	float light = getLightValue(renderTex.rgb);
-	light = clamp(light - 0.6, 0, 1);
-	return light * renderTex * 2;
+	light = clamp(light - 0.4, 0, 0.2);
+	return light * renderTex;
 }
 
 //Bloom特效（让亮的地方更亮，并且让亮的地方的周围也更亮）
@@ -107,6 +107,6 @@ float4 AddBloomPS(VertexOut pin) :SV_Target
 	uint diffuseTexIndex = matData.DiffuseMapIndex;      //用第几张贴图
 	float4 renderTex = gDiffuseMap[diffuseTexIndex].Sample(gsamLinearWrap, pin.TexC);    //后台缓冲区的颜色
 
-	float4 bloomTex = gDiffuseMap[7].Sample(gsamLinearWrap, pin.TexC);    //bloom贴图的高亮颜色
+	float4 bloomTex = gDiffuseMap[bloomMapIndex].Sample(gsamLinearWrap, pin.TexC);    //bloom贴图的高亮颜色
 	return bloomTex + renderTex;
 }

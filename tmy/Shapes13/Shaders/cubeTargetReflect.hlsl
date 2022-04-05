@@ -44,33 +44,20 @@ float4 PS(VertexOut pin) : SV_Target
 	float4 diffuseAlbedo = matData.DiffuseAlbedo * 0.3;
 	float3 fresnelR0 = matData.FresnelR0;
 	float  roughness = matData.Roughness;
-	
 	uint diffuseTexIndex = matData.DiffuseMapIndex;
-
 	pin.NormalW = normalize(pin.NormalW);
-
-	// Vector from point being lit to eye. 
 	float3 toEyeW = normalize(gEyePosW - pin.PosW);
-
-	// Light terms.
 	float4 ambient = gAmbientLight * diffuseAlbedo;
-
 	const float shininess = 1.0f - roughness;
 	Material mat = { diffuseAlbedo, fresnelR0, shininess };
 	float3 shadowFactor = 1.0f;
 	float4 directLight = ComputeLighting(DirectLights, mat, pin.PosW,   //光照函数，返回的是漫反射光 + 镜面光
 		pin.NormalW, toEyeW, shadowFactor);
-
 	float4 litColor = ambient + directLight;
-
-	// Add in specular reflections.
-	float3 r = reflect(-toEyeW, pin.NormalW);
+	float3 r = reflect(-toEyeW, pin.NormalW);    //使用反射向量
 	float4 reflectionColor = cubeTexture[diffuseTexIndex].Sample(gsamLinearWrap, r);
 	float3 fresnelFactor = SchlickFresnel(fresnelR0, pin.NormalW, r);
 	litColor.rgb += shininess * fresnelFactor * reflectionColor.rgb;
-
-	// Common convention to take alpha from diffuse albedo.
 	litColor.a = diffuseAlbedo.a;
-
 	return litColor;
 }

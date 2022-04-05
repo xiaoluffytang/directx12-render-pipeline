@@ -70,25 +70,25 @@ float4 BlurHorizontalFirstPS(VertexOut pin) : SV_Target
 //高斯竖向垂直方向（第一次）
 float4 BlurVerticalFirstPS(VertexOut pin) : SV_Target
 {
-	return BlurFun2(3,pin,false);
+	return BlurFun2(vecIndex,pin,false);
 }
 
 //高斯模糊水平方向（第n次，n > 1）
 float4 BlurHorizontalPS(VertexOut pin) : SV_Target
 {
-	return BlurFun(4,pin,true);
+	return BlurFun(horIndex,pin,true);
 }
 
 //高斯竖向垂直方向（第n次，n > 1）
 float4 BlurVerticalPS(VertexOut pin) : SV_Target
 {
-	return BlurFun2(3,pin,false);
+	return BlurFun2(vecIndex,pin,false);
 }
 
 
 //复制高斯模糊结果
 float4 BlurCopyPS(VertexOut pin) : SV_Target
 {
-	float4 renderTex = gDiffuseMap[3].Sample(gsamLinearWrap, pin.TexC);
+	float4 renderTex = gDiffuseMap[vecIndex].Sample(gsamLinearWrap, pin.TexC);
 	return renderTex;
 }
